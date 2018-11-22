@@ -1,0 +1,45 @@
+[System]
+Name='test'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='altitude'
+Range=[10000 44000]
+NumMFs=2
+MF1='low_altitude':'trimf',[-14800 9190 30000]
+MF2='high_altitude':'trimf',[25991.5343915344 59991.5343915344 93991.5343915344]
+
+[Input2]
+Name='speed'
+Range=[800 1000]
+NumMFs=2
+MF1='low_speed':'trimf',[720 800 997.619047619048]
+MF2='high_speed':'trimf',[798.677248677249 1000 1080]
+
+[Output1]
+Name='altitude'
+Range=[10000 44000]
+NumMFs=2
+MF1='low_altitude':'trimf',[-3700 9910 30013.2275132275]
+MF2='high_altitude':'trimf',[22000 42066.1375661376 57600]
+
+[Output2]
+Name='speed'
+Range=[800 1000]
+NumMFs=2
+MF1='low_speed':'trimf',[720 800 999.206349206349]
+MF2='high_speed':'trimf',[799.206349206349 1000 1080]
+
+[Rules]
+1 1, 2 2 (1) : 1
+1 2, 2 0 (1) : 1
+2 1, 0 2 (1) : 1
